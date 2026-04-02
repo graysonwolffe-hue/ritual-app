@@ -15,7 +15,7 @@ const DEFAULT_HABITS = [
 ];
 
 const TROPHY_MILESTONES = [7, 14, 30, 60, 100];
-const ICONS = ["⚡","🏃","🧘","💧","🥗","😴","🎯","💪","📚","🎸","🧠","🌅","🏊","🚴","🥊","🧗","🏄","🎾"];
+const ICON_SUGGESTIONS = ["⚡","🏃","🧘","💧","🥗","😴","🎯","💪","📚","🎸","🧠","🌅","🏊","🚴","🥊","🧗","🏄","🎾","🔥","✅","🧴","🛏️","💊","🧹","💰","🎨"];
 
 // ── Components ────────────────────────────────────────────────────────────────
 function DotGrid({ streak, target = 30 }) {
@@ -108,35 +108,13 @@ function WelcomeScreen({ onEnter }) {
       transform: exiting ? "scale(1.05)" : "scale(1)",
       transition: "opacity 0.5s ease, transform 0.5s ease",
     }}>
-      {/* Orbs */}
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden" }}>
-        <div style={{
-          position: "absolute", top: "-10%", left: "-10%", width: 380, height: 380, borderRadius: "50%",
-          background: "radial-gradient(circle,rgba(255,80,0,0.22) 0%,transparent 70%)",
-          animation: "orbFloat1 8s ease-in-out infinite",
-        }} />
-        <div style={{
-          position: "absolute", bottom: "-5%", right: "-15%", width: 320, height: 320, borderRadius: "50%",
-          background: "radial-gradient(circle,rgba(180,50,255,0.14) 0%,transparent 70%)",
-          animation: "orbFloat2 10s ease-in-out infinite",
-        }} />
-        <div style={{
-          position: "absolute", top: "55%", left: "55%", width: 200, height: 200, borderRadius: "50%",
-          background: "radial-gradient(circle,rgba(255,180,0,0.1) 0%,transparent 70%)",
-          animation: "orbFloat3 7s ease-in-out infinite",
-        }} />
+        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: 380, height: 380, borderRadius: "50%", background: "radial-gradient(circle,rgba(255,80,0,0.22) 0%,transparent 70%)", animation: "orbFloat1 8s ease-in-out infinite" }} />
+        <div style={{ position: "absolute", bottom: "-5%", right: "-15%", width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle,rgba(180,50,255,0.14) 0%,transparent 70%)", animation: "orbFloat2 10s ease-in-out infinite" }} />
+        <div style={{ position: "absolute", top: "55%", left: "55%", width: 200, height: 200, borderRadius: "50%", background: "radial-gradient(circle,rgba(255,180,0,0.1) 0%,transparent 70%)", animation: "orbFloat3 7s ease-in-out infinite" }} />
       </div>
+      <div style={{ position: "absolute", inset: 0, pointerEvents: "none", backgroundImage: "radial-gradient(circle,rgba(255,255,255,0.055) 1px,transparent 1px)", backgroundSize: "28px 28px", maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)", WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)" }} />
 
-      {/* Dot texture */}
-      <div style={{
-        position: "absolute", inset: 0, pointerEvents: "none",
-        backgroundImage: "radial-gradient(circle,rgba(255,255,255,0.055) 1px,transparent 1px)",
-        backgroundSize: "28px 28px",
-        maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)",
-        WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)",
-      }} />
-
-      {/* Content */}
       <div style={{
         position: "relative", zIndex: 10,
         display: "flex", flexDirection: "column", alignItems: "center",
@@ -145,82 +123,25 @@ function WelcomeScreen({ onEnter }) {
         transform: phase >= 1 ? "translateY(0)" : "translateY(28px)",
         transition: "opacity 0.7s ease, transform 0.7s ease",
       }}>
+        <div style={{ width: 92, height: 92, borderRadius: 30, marginBottom: 24, background: "linear-gradient(135deg,#ff6a00,#ff3d00)", boxShadow: "0 8px 40px rgba(255,80,0,0.5), 0 0 0 1px rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 44, animation: "logoFloat 4s ease-in-out infinite" }}>🔥</div>
+        <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,140,0,0.85)", marginBottom: 10, animation: "fadeSlideUp 0.6s 0.15s both" }}>Welcome To</div>
+        <h1 style={{ fontSize: 58, fontWeight: 800, lineHeight: 1, margin: "0 0 10px", letterSpacing: "-2px", background: "linear-gradient(135deg,#fff 30%,rgba(255,160,80,0.95) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "fadeSlideUp 0.6s 0.25s both" }}>Ritual</h1>
+        <p style={{ fontSize: 16, color: "rgba(255,255,255,0.42)", fontWeight: 500, margin: "0 0 40px", lineHeight: 1.6, maxWidth: 240, animation: "fadeSlideUp 0.6s 0.35s both" }}>Build streaks. Stay locked in.<br />Become who you want to be.</p>
 
-        {/* Logo */}
-        <div style={{
-          width: 92, height: 92, borderRadius: 30, marginBottom: 24,
-          background: "linear-gradient(135deg,#ff6a00,#ff3d00)",
-          boxShadow: "0 8px 40px rgba(255,80,0,0.5), 0 0 0 1px rgba(255,255,255,0.1)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          fontSize: 44, animation: "logoFloat 4s ease-in-out infinite",
-        }}>🔥</div>
-
-        <div style={{
-          fontSize: 11, fontWeight: 700, letterSpacing: "0.3em", textTransform: "uppercase",
-          color: "rgba(255,140,0,0.85)", marginBottom: 10,
-          animation: "fadeSlideUp 0.6s 0.15s both",
-        }}>Welcome To</div>
-
-        <h1 style={{
-          fontSize: 58, fontWeight: 800, lineHeight: 1, margin: "0 0 10px",
-          letterSpacing: "-2px",
-          background: "linear-gradient(135deg,#fff 30%,rgba(255,160,80,0.95) 100%)",
-          WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-          animation: "fadeSlideUp 0.6s 0.25s both",
-        }}>Ritual</h1>
-
-        <p style={{
-          fontSize: 16, color: "rgba(255,255,255,0.42)", fontWeight: 500,
-          margin: "0 0 40px", lineHeight: 1.6, maxWidth: 240,
-          animation: "fadeSlideUp 0.6s 0.35s both",
-        }}>Build streaks. Stay locked in.<br />Become who you want to be.</p>
-
-        {/* Feature pills */}
         <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", marginBottom: 44 }}>
           {features.map((f, i) => (
-            <div key={i} style={{
-              display: "flex", alignItems: "center", gap: 14,
-              padding: "13px 18px",
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              borderRadius: 16, backdropFilter: "blur(12px)",
-              animation: `fadeSlideUp 0.6s ${0.45 + i * 0.1}s both`,
-            }}>
-              <div style={{
-                width: 38, height: 38, borderRadius: 12, flexShrink: 0,
-                background: "rgba(255,100,0,0.18)",
-                display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18,
-              }}>{f.icon}</div>
+            <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "13px 18px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 16, backdropFilter: "blur(12px)", animation: `fadeSlideUp 0.6s ${0.45 + i * 0.1}s both` }}>
+              <div style={{ width: 38, height: 38, borderRadius: 12, flexShrink: 0, background: "rgba(255,100,0,0.18)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>{f.icon}</div>
               <span style={{ fontSize: 15, fontWeight: 600, color: "rgba(255,255,255,0.8)" }}>{f.text}</span>
               <div style={{ marginLeft: "auto", width: 6, height: 6, borderRadius: "50%", background: "rgba(255,120,0,0.6)" }} />
             </div>
           ))}
         </div>
 
-        {/* CTA */}
-        <button
-          onClick={handleEnter}
-          style={{
-            width: "100%", padding: "20px 0",
-            background: "linear-gradient(135deg,#ff6a00,#ff3d00)",
-            border: "none", borderRadius: 20, color: "#fff",
-            fontSize: 18, fontWeight: 800, cursor: "pointer",
-            fontFamily: "'Plus Jakarta Sans',sans-serif",
-            letterSpacing: "0.04em",
-            boxShadow: "0 8px 32px rgba(255,80,0,0.45), 0 0 0 1px rgba(255,255,255,0.08)",
-            animation: "fadeSlideUp 0.6s 0.75s both",
-            display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-            WebkitAppearance: "none",
-          }}
-        >
+        <button onClick={handleEnter} style={{ width: "100%", padding: "20px 0", background: "linear-gradient(135deg,#ff6a00,#ff3d00)", border: "none", borderRadius: 20, color: "#fff", fontSize: 18, fontWeight: 800, cursor: "pointer", fontFamily: "'Plus Jakarta Sans',sans-serif", letterSpacing: "0.04em", boxShadow: "0 8px 32px rgba(255,80,0,0.45), 0 0 0 1px rgba(255,255,255,0.08)", animation: "fadeSlideUp 0.6s 0.75s both", display: "flex", alignItems: "center", justifyContent: "center", gap: 10, WebkitAppearance: "none" }}>
           Get Started <span style={{ fontSize: 20 }}>→</span>
         </button>
-
-        <p style={{
-          fontSize: 11, color: "rgba(255,255,255,0.18)", marginTop: 18, fontWeight: 600,
-          letterSpacing: "0.06em", textTransform: "uppercase",
-          animation: "fadeSlideUp 0.6s 0.9s both",
-        }}>Free forever · No account needed</p>
+        <p style={{ fontSize: 11, color: "rgba(255,255,255,0.18)", marginTop: 18, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", animation: "fadeSlideUp 0.6s 0.9s both" }}>Free forever · No account needed</p>
       </div>
     </div>
   );
@@ -229,7 +150,7 @@ function WelcomeScreen({ onEnter }) {
 // ── Main App ──────────────────────────────────────────────────────────────────
 export default function App() {
   const stored = load();
-  const [screen, setScreen]       = useState(stored.hasVisited ? "app" : "welcome");
+  const [screen, setScreen]         = useState(stored.hasVisited ? "app" : "welcome");
   const [appVisible, setAppVisible] = useState(!!stored.hasVisited);
   const today     = getTodayKey();
   const yesterday = getYesterdayKey();
@@ -288,7 +209,7 @@ export default function App() {
 
   function addHabit() {
     if (!newName.trim()) return;
-    setHabits(h => [...h, { id: Date.now(), name: newName.trim(), icon: newIcon, target: 30 }]);
+    setHabits(h => [...h, { id: Date.now(), name: newName.trim(), icon: newIcon || "⚡", target: 30 }]);
     setNewName(""); setNewIcon("⚡");
     setAddSuccess(true); setTimeout(() => setAddSuccess(false), 1500);
   }
@@ -302,6 +223,8 @@ export default function App() {
     ...h, streak: streaks[h.id] || 0,
     badges: TROPHY_MILESTONES.map(m => ({ days: m, unlocked: (streaks[h.id] || 0) >= m })),
   }));
+
+  const NAV_HEIGHT = "calc(64px + var(--sab))";
 
   const CSS = `
     @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
@@ -319,6 +242,7 @@ export default function App() {
     .tab-btn{transition:all 0.2s;cursor:pointer;border:none;outline:none;background:none;-webkit-tap-highlight-color:transparent;}
     input::placeholder{color:rgba(255,255,255,0.25);}
     input{caret-color:#ff6a00;}
+    .emoji-input::placeholder{color:rgba(255,255,255,0.25);}
   `;
 
   if (screen === "welcome") return (
@@ -341,65 +265,37 @@ export default function App() {
       <style>{CSS}</style>
       <Particles active={celebrating} />
 
-      {/* BG orbs */}
-      <div style={{ position: "fixed", top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle,rgba(255,100,0,0.18) 0%,transparent 70%)", pointerEvents: "none" }} />
-      <div style={{ position: "fixed", bottom: 100, left: -60, width: 250, height: 250, borderRadius: "50%", background: "radial-gradient(circle,rgba(120,60,255,0.12) 0%,transparent 70%)", pointerEvents: "none" }} />
+      <div style={{ position: "fixed", top: -80, right: -80, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle,rgba(255,100,0,0.18) 0%,transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
+      <div style={{ position: "fixed", bottom: 100, left: -60, width: 250, height: 250, borderRadius: "50%", background: "radial-gradient(circle,rgba(120,60,255,0.12) 0%,transparent 70%)", pointerEvents: "none", zIndex: 0 }} />
 
       {/* ── HOME ── */}
       {tab === "home" && (
-        <div style={{ padding: "calc(var(--sat) + 44px) 20px calc(var(--sab) + 88px)" }}>
+        <div style={{ padding: "calc(var(--sat) + 44px) 20px 0", paddingBottom: NAV_HEIGHT }}>
           <div style={{ marginBottom: 24, animation: "fadeSlideUp 0.5s both" }}>
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", fontWeight: 600, letterSpacing: "0.05em", marginBottom: 4 }}>
-              {greeting}, Grayson 👋
-            </p>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", fontWeight: 600, letterSpacing: "0.05em", marginBottom: 4 }}>{greeting}, Grayson 👋</p>
             <h1 style={{ fontSize: 26, fontWeight: 800, lineHeight: 1.2 }}>
               {allDone ? "🔥 Day Complete. Beast." : "Keep the streak alive,\nspark your motivation."}
             </h1>
           </div>
 
-          {/* Progress card */}
-          <div style={{
-            background: "linear-gradient(135deg,rgba(255,90,0,0.85),rgba(220,60,0,0.7))",
-            borderRadius: 24, padding: "22px 20px", marginBottom: 18,
-            display: "flex", alignItems: "center", justifyContent: "space-between",
-            backdropFilter: "blur(20px)",
-            boxShadow: allDone ? "0 8px 40px rgba(255,100,0,0.5)" : "0 8px 32px rgba(0,0,0,0.3)",
-            animation: allDone ? "glowPulse 2s infinite" : "fadeSlideUp 0.5s 0.1s both",
-          }}>
+          <div style={{ background: "linear-gradient(135deg,rgba(255,90,0,0.85),rgba(220,60,0,0.7))", borderRadius: 24, padding: "22px 20px", marginBottom: 18, display: "flex", alignItems: "center", justifyContent: "space-between", backdropFilter: "blur(20px)", boxShadow: allDone ? "0 8px 40px rgba(255,100,0,0.5)" : "0 8px 32px rgba(0,0,0,0.3)", animation: allDone ? "glowPulse 2s infinite" : "fadeSlideUp 0.5s 0.1s both" }}>
             <div>
               <p style={{ fontSize: 11, fontWeight: 600, opacity: 0.7, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 6 }}>Today's Progress</p>
               <p style={{ fontSize: 36, fontWeight: 800, lineHeight: 1 }}>{done}<span style={{ fontSize: 18, opacity: 0.6 }}>/{total}</span></p>
               <p style={{ fontSize: 13, opacity: 0.7, marginTop: 4 }}>habits completed</p>
-              {allDone && (
-                <p style={{
-                  fontSize: 13, marginTop: 8, fontWeight: 700,
-                  background: "linear-gradient(90deg,#fff,#ffe4b3)", backgroundSize: "200%",
-                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-                  animation: "shimmer 2s linear infinite",
-                }}>🏆 PERFECT DAY!</p>
-              )}
+              {allDone && <p style={{ fontSize: 13, marginTop: 8, fontWeight: 700, background: "linear-gradient(90deg,#fff,#ffe4b3)", backgroundSize: "200%", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", animation: "shimmer 2s linear infinite" }}>🏆 PERFECT DAY!</p>}
             </div>
             <CircularProgress pct={pct} />
           </div>
 
-          {/* Habit cards */}
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {habits.map((h, idx) => {
               const isDone = completed.includes(h.id), streak = streaks[h.id] || 0;
               return (
-                <div key={h.id} className="hcard" onClick={() => toggle(h.id)} style={{
-                  background: isDone ? "linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06))" : "rgba(255,255,255,0.05)",
-                  border: `1px solid ${isDone ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.07)"}`,
-                  borderRadius: 20, padding: "15px 16px",
-                  position: "relative", overflow: "hidden",
-                  animation: `fadeSlideUp 0.5s ${0.15 + idx * 0.07}s both`,
-                  backdropFilter: "blur(10px)",
-                }}>
+                <div key={h.id} className="hcard" onClick={() => toggle(h.id)} style={{ background: isDone ? "linear-gradient(135deg,rgba(255,255,255,0.12),rgba(255,255,255,0.06))" : "rgba(255,255,255,0.05)", border: `1px solid ${isDone ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.07)"}`, borderRadius: 20, padding: "15px 16px", position: "relative", overflow: "hidden", animation: `fadeSlideUp 0.5s ${0.15 + idx * 0.07}s both`, backdropFilter: "blur(10px)" }}>
                   <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 3, background: isDone ? "linear-gradient(180deg,#ff8c00,#ff4500)" : "transparent", borderRadius: "20px 0 0 20px", transition: "background 0.3s" }} />
                   <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                    <div style={{ width: 44, height: 44, borderRadius: 13, flexShrink: 0, background: isDone ? "rgba(255,120,0,0.25)" : "rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 21, transition: "all 0.3s", boxShadow: isDone ? "0 4px 16px rgba(255,100,0,0.3)" : "none" }}>
-                      {h.icon}
-                    </div>
+                    <div style={{ width: 44, height: 44, borderRadius: 13, flexShrink: 0, background: isDone ? "rgba(255,120,0,0.25)" : "rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 21, transition: "all 0.3s", boxShadow: isDone ? "0 4px 16px rgba(255,100,0,0.3)" : "none" }}>{h.icon}</div>
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
                         <span style={{ fontSize: 16, fontWeight: 700, color: isDone ? "rgba(255,255,255,0.5)" : "#fff", textDecoration: isDone ? "line-through" : "none", transition: "all 0.3s" }}>{h.name}</span>
@@ -421,7 +317,7 @@ export default function App() {
 
       {/* ── TROPHIES ── */}
       {tab === "trophies" && (
-        <div style={{ padding: "calc(var(--sat) + 44px) 20px calc(var(--sab) + 88px)" }}>
+        <div style={{ padding: "calc(var(--sat) + 44px) 20px 0", paddingBottom: NAV_HEIGHT }}>
           <h1 style={{ fontSize: 30, fontWeight: 800, marginBottom: 6, animation: "fadeSlideUp 0.4s both" }}>Trophies 🏆</h1>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 28, animation: "fadeSlideUp 0.4s 0.05s both" }}>Hit streak milestones to unlock badges</p>
           {trophyData.map((h, hi) => (
@@ -449,19 +345,66 @@ export default function App() {
 
       {/* ── ADD ── */}
       {tab === "add" && (
-        <div style={{ padding: "calc(var(--sat) + 44px) 20px calc(var(--sab) + 88px)" }}>
+        <div style={{ padding: "calc(var(--sat) + 44px) 20px 0", paddingBottom: NAV_HEIGHT }}>
           <h1 style={{ fontSize: 30, fontWeight: 800, marginBottom: 6, animation: "fadeSlideUp 0.4s both" }}>Add Habit</h1>
           <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginBottom: 28, animation: "fadeSlideUp 0.4s 0.05s both" }}>Build the ritual, lock in the streak.</p>
 
+          {/* ── Emoji / Icon picker ── */}
           <div style={{ marginBottom: 20, animation: "fadeSlideUp 0.4s 0.1s both" }}>
             <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: 10 }}>Choose Icon</p>
+
+            {/* Free-type emoji input */}
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+              <div style={{
+                width: 56, height: 56, borderRadius: 16, flexShrink: 0,
+                background: "linear-gradient(135deg,rgba(255,100,0,0.4),rgba(255,60,0,0.25))",
+                border: "1.5px solid rgba(255,120,0,0.6)",
+                display: "flex", alignItems: "center", justifyContent: "center", fontSize: 26,
+              }}>{newIcon || "⚡"}</div>
+              <div style={{ flex: 1 }}>
+                <input
+                  className="emoji-input"
+                  value={newIcon}
+                  onChange={e => {
+                    // grab last character typed (handles emoji properly)
+                    const val = e.target.value;
+                    const chars = [...val];
+                    if (chars.length === 0) { setNewIcon(""); return; }
+                    setNewIcon(chars[chars.length - 1]);
+                  }}
+                  placeholder="Type or paste any emoji…"
+                  style={{
+                    width: "100%", padding: "14px 16px",
+                    background: "rgba(255,255,255,0.06)",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    borderRadius: 14, color: "#fff", fontSize: 22,
+                    fontFamily: "sans-serif", outline: "none",
+                    WebkitAppearance: "none",
+                  }}
+                />
+                <p style={{ fontSize: 11, color: "rgba(255,255,255,0.28)", marginTop: 5, fontWeight: 500 }}>
+                  Type any emoji from your keyboard, or tap a suggestion below
+                </p>
+              </div>
+            </div>
+
+            {/* Suggestions grid */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: 8 }}>
-              {ICONS.map(ic => (
-                <div key={ic} onClick={() => setNewIcon(ic)} style={{ height: 48, borderRadius: 14, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, cursor: "pointer", background: newIcon === ic ? "linear-gradient(135deg,rgba(255,100,0,0.6),rgba(255,60,0,0.4))" : "rgba(255,255,255,0.05)", border: `1px solid ${newIcon === ic ? "rgba(255,120,0,0.6)" : "rgba(255,255,255,0.07)"}`, transform: newIcon === ic ? "scale(1.05)" : "scale(1)", transition: "all 0.2s" }}>{ic}</div>
+              {ICON_SUGGESTIONS.map(ic => (
+                <div key={ic} onClick={() => setNewIcon(ic)} style={{
+                  height: 48, borderRadius: 14,
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontSize: 22, cursor: "pointer",
+                  background: newIcon === ic ? "linear-gradient(135deg,rgba(255,100,0,0.6),rgba(255,60,0,0.4))" : "rgba(255,255,255,0.05)",
+                  border: `1px solid ${newIcon === ic ? "rgba(255,120,0,0.6)" : "rgba(255,255,255,0.07)"}`,
+                  transform: newIcon === ic ? "scale(1.08)" : "scale(1)",
+                  transition: "all 0.18s",
+                }}>{ic}</div>
               ))}
             </div>
           </div>
 
+          {/* Name input */}
           <div style={{ marginBottom: 24, animation: "fadeSlideUp 0.4s 0.15s both" }}>
             <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", marginBottom: 10 }}>Habit Title</p>
             <input value={newName} onChange={e => setNewName(e.target.value)}
@@ -486,21 +429,37 @@ export default function App() {
         </div>
       )}
 
-      {/* ── Bottom Nav ── */}
+      {/* ── Bottom Nav — always fixed, always visible ── */}
       <div style={{
-        position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)",
-        width: "100%", maxWidth: 430,
-        background: "rgba(10,5,0,0.9)", backdropFilter: "blur(24px)",
-        borderTop: "1px solid rgba(255,255,255,0.07)",
-        paddingTop: 12, paddingBottom: "calc(var(--sab) + 12px)",
-        display: "flex", justifyContent: "space-around", alignItems: "center", zIndex: 50,
+        position: "fixed",
+        bottom: 0,
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "100%",
+        maxWidth: 430,
+        background: "rgba(8,4,0,0.96)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
+        paddingTop: 10,
+        paddingBottom: "calc(var(--sab) + 10px)",
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+        zIndex: 999,
       }}>
         {[
           { id: "home", icon: "🔥", label: "Today" },
           { id: "trophies", icon: "🏆", label: "Trophies" },
           { id: "add", icon: "＋", label: "Add" },
         ].map(t => (
-          <button key={t.id} className="tab-btn" onClick={() => setTab(t.id)} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, color: tab === t.id ? "#ff6a00" : "rgba(255,255,255,0.3)", padding: "6px 24px", borderRadius: 16, background: tab === t.id ? "rgba(255,100,0,0.12)" : "transparent", transition: "all 0.2s" }}>
+          <button key={t.id} className="tab-btn" onClick={() => setTab(t.id)} style={{
+            display: "flex", flexDirection: "column", alignItems: "center", gap: 3,
+            color: tab === t.id ? "#ff6a00" : "rgba(255,255,255,0.3)",
+            padding: "6px 28px", borderRadius: 16,
+            background: tab === t.id ? "rgba(255,100,0,0.12)" : "transparent",
+            transition: "all 0.2s",
+          }}>
             <span style={{ fontSize: t.id === "add" ? 22 : 18, lineHeight: 1 }}>{t.icon}</span>
             <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.04em" }}>{t.label}</span>
           </button>
